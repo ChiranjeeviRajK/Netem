@@ -9,22 +9,7 @@ pattern = None
 dev_list = None
 
 
-#
-# def parse_arguments():
-#     parser = argparse.ArgumentParser(description='TC web GUI')
-#     parser.add_argument('--ip', type=str, required=False,
-#                         help='The IP where the server is listening')
-#     parser.add_argument('--port', type=str, required=False,
-#                         help='The port where the server is listening')
-#     parser.add_argument('--dev', type=str, nargs='*', required=False,
-#                         help='The interfaces to restrict to')
-#     parser.add_argument('--regex',type=str, required=False,
-#                         help='A regex to match interfaces')
-#     parser.add_argument('--debug',action='store_true',
-#                         help='Run Flask in debug mode')
-#     return parser.parse_args()
 
-#
 @app.route("/")
 def net():
     rules = get_active_rules()
@@ -135,20 +120,3 @@ if __name__ == "__main__":
     app.run(host='192.168.56.101', port=5500)
     # http_server = wsgiserver(('192.168.56.101', 5000), app)
     # http_server.serve_forever()
-# if __name__ == "__main__":
-#     if os.geteuid() != 0:
-#         exit("You need to have root privileges to run this script.\nPlease try again, this time using 'sudo'. Exiting.")
-#     args = parse_arguments()
-#     if args.regex:
-#         pattern = re.compile(args.regex)
-#     if args.dev:
-#         dev_list = args.dev
-#     app_args = {}
-#     if args.ip:
-#         app_args['192.168.56.101'] = args.ip
-#     if args.port:
-#         app_args['5500'] = args.port
-#     if not args.debug:
-#         app_args['debug'] = False
-#     app.debug = True
-#     app.run(**app_args)
